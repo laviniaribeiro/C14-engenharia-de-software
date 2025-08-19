@@ -10,5 +10,5 @@ def obter_piadas():
     
 if __name__ == "__main__":
     piada = obter_piadas()
-    print("---- Piada do Chuck Norris ----")
+    print("Aqui está a sua piada do Chuck Norris:")
     print(piada)
