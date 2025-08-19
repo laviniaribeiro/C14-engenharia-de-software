@@ -68,6 +68,18 @@ Chuck Norris counted to infinity. Twice.
 
 ```
 
+##
+
+
+### ❌ Erros de Merge
+Durante a execução do projeto, foram gerados propositalmente erros de merge, pois houveram alterações simultaneas na mesma linha. 
+O conflito foi resolvido alterando novamente a linha e deixando comum aos dois contribuintes.
+
+
+##
+
+
 ### 👩‍💻 Feito por
 [Lavínia V. Ribeiro Amaral](https://github.com/laviniaribeiro)
+
 
