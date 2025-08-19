@@ -1,6 +1,6 @@
 import requests
 
-def piadas():
+def obter():
     url = "https://api.chucknorris.io/jokes/random"
     resposta = requests.get(url)
     if resposta.status_code == 200:
@@ -9,6 +9,6 @@ def piadas():
         return "Erro ao buscar piada."
     
 if __name__ == "__main__":
-    piada = obter_piadas()
+    piada = obter()
     print("Piada do Chuck Norris:")
     print(piada)
