@@ -1,6 +1,6 @@
 import requests
 
-def obter_piadas():
+def piadas():
     url = "https://api.chucknorris.io/jokes/random"
     resposta = requests.get(url)
     if resposta.status_code == 200:
