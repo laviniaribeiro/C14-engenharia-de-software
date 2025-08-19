@@ -69,4 +69,5 @@ Chuck Norris counted to infinity. Twice.
 ```
 
 ### 👩‍💻 Feito por
-[Lavínia Ribeiro Amaral](https://github.com/laviniaribeiro)
+[Lavínia V. Ribeiro Amaral](https://github.com/laviniaribeiro)
+
