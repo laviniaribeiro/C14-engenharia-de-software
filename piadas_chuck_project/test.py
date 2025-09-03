@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch, Mock
-from main import obter  
+from main import testes  
 
-class TestObterPiada(unittest.TestCase):
+class TestTestesPiada(unittest.TestCase):
 
     # -------- 10 CASOS POSITIVOS --------
     @patch('main.requests.get')
@@ -11,7 +11,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris contou até infinito.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIsInstance(resultado, str)
 
     @patch('main.requests.get')
@@ -20,7 +20,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Piada engraçada'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertTrue(len(resultado) > 0)
 
     @patch('main.requests.get')
@@ -29,7 +29,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris 🥋 é invencível!'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIn('Chuck Norris', resultado)
 
     @patch('main.requests.get')
@@ -38,7 +38,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris 1 x 0 qualquer adversário.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIn('1', resultado)
 
     @patch('main.requests.get')
@@ -47,7 +47,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'CHUCK NORRIS NÃO FALHA.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertTrue(resultado.isupper())
 
     @patch('main.requests.get')
@@ -56,7 +56,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'chuck norris é lendário.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertTrue(resultado.islower())
 
     @patch('main.requests.get')
@@ -65,7 +65,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris pula corda.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIn(' ', resultado)
 
     @patch('main.requests.get')
@@ -74,7 +74,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris vence sem lutar.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertTrue(resultado.endswith('.'))
 
     @patch('main.requests.get')
@@ -83,7 +83,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Chuck Norris é imbatível.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIn('Chuck', resultado)
 
     @patch('main.requests.get')
@@ -92,7 +92,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.status_code = 200
         mock_response.json.return_value = {'value': 'Norris derrota qualquer inimigo.'}
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertIn('Norris', resultado)
 
     # -------- 10 CASOS NEGATIVOS --------
@@ -101,7 +101,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 404
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
     @patch('main.requests.get')
@@ -109,7 +109,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 500
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
     @patch('main.requests.get')
@@ -119,7 +119,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response.json.side_effect = ValueError("JSON inválido")
         mock_get.return_value = mock_response
         with self.assertRaises(ValueError):
-            obter()
+            testes()
 
     @patch('main.requests.get')
     def test_campo_value_faltando(self, mock_get):
@@ -128,26 +128,26 @@ class TestObterPiada(unittest.TestCase):
         mock_response.json.return_value = {}
         mock_get.return_value = mock_response
         with self.assertRaises(KeyError):
-            obter()
+            testes()
 
     @patch('main.requests.get')
     def test_conexao_erro(self, mock_get):
         mock_get.side_effect = Exception("Falha de conexão")
         with self.assertRaises(Exception):
-            obter()
+            testes()
 
     @patch('main.requests.get')
     def test_timeout(self, mock_get):
         mock_get.side_effect = TimeoutError("Timeout")
         with self.assertRaises(TimeoutError):
-            obter()
+            testes()
 
     @patch('main.requests.get')
     def test_status_negativo_401(self, mock_get):
         mock_response = Mock()
         mock_response.status_code = 401
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
     @patch('main.requests.get')
@@ -155,7 +155,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 403
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
     @patch('main.requests.get')
@@ -163,7 +163,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 400
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
     @patch('main.requests.get')
@@ -171,7 +171,7 @@ class TestObterPiada(unittest.TestCase):
         mock_response = Mock()
         mock_response.status_code = 503
         mock_get.return_value = mock_response
-        resultado = obter()
+        resultado = testes()
         self.assertEqual(resultado, "Erro ao buscar piada.")
 
 if __name__ == '__main__':

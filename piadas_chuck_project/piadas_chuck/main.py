@@ -1,8 +1,8 @@
 import requests
 
 def obter():
-    url = "https://api.chucknorris.io/jokes/random"
-    resposta = requests.get(url)
+    url_req = "https://api.chucknorris.io/jokes/random"
+    resposta = requests.get(url_req)
     if resposta.status_code == 200:
         return resposta.json()['value'] 
     else:
