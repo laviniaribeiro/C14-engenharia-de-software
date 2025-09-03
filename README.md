@@ -78,8 +78,23 @@ O conflito foi resolvido alterando novamente a linha e deixando comum aos dois c
 
 ##
 
+## Testes e regressões
+
+Para garantir que a suíte de testes unitários está funcionando corretamente, criamos alguns casos de **regressão intencional**:
+
+- Uma alteração foi feita propositalmente na função `obter()` para gerar um erro.
+- Ao rodar os testes com:
+
+```bash
+python -m unittest test_chucknorris.py
+
+```
+
+##
+
 
 ### 👩‍💻 Feito por
 [Lavínia V. Ribeiro Amaral](https://github.com/laviniaribeiro)
+
 
 
