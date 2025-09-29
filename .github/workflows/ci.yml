@@ -123,4 +123,4 @@ jobs:
             - Build: ${{ needs.packaging.outputs.build_result }}
             (Para baixar artefatos: vá ao run do workflow > Artifacts)
         run: |
-          python send_email.py
+          python scripts/send_email.py
