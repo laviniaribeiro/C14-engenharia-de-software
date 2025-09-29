@@ -2,12 +2,15 @@
 
 Aplicação simples em **Python** que consome a [API pública do Chuck Norris](https://api.chucknorris.io/) para exibir piadas aleatórias no terminal.  
 O projeto utiliza **[Poetry](https://python-poetry.org/)** para gerenciamento de dependências e **PyInstaller** para gerar um executável final.
+Conta também com uma **pipeline de CI/CD com GitHub Actions** que roda testes, empacota o software e envia notificações por e-mail.
 
 ##
 
 ### 📌 Funcionalidades
 - Buscar uma piada aleatória da API do Chuck Norris.
 - Exibir diretamente no terminal.
+- Suíte com 20 testes unitários/mocks para validar cenários positivos e negativos.
+- Pipeline CI/CD automatizado.
 
 ##
 
@@ -16,6 +19,8 @@ O projeto utiliza **[Poetry](https://python-poetry.org/)** para gerenciamento de
 - [Poetry](https://python-poetry.org/) — gerenciamento de dependências e build
 - [Requests](https://pypi.org/project/requests/) — consumo da API
 - [PyInstaller](https://pyinstaller.org/) — criação do executável
+- [Unittest + Mock](https://docs.python.org/3/library/unittest.html) / [Pytest](https://docs.pytest.org/) — testes automatizados
+- [GitHub Actions](https://docs.github.com/en/actions) — CI/CD e notificações
 
 ##
 
@@ -95,6 +100,7 @@ python -m unittest test_chucknorris.py
 
 ### 👩‍💻 Feito por
 [Lavínia V. Ribeiro Amaral](https://github.com/laviniaribeiro)
+
 
 
 
