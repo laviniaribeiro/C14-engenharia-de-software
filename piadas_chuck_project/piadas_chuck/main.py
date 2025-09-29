@@ -1,14 +1,19 @@
 import requests
 
-def obter():
+def testes():
     url_req = "https://api.chucknorris.io/jokes/random"
-    resposta = requests.get(url_req)
+    resposta = requests.get(url_req, timeout=10)
     if resposta.status_code == 200:
-        return resposta.json()['value'] 
+        data = resposta.json()   
+        return data['value']     
     else:
         return "Erro ao buscar piada."
     
 if __name__ == "__main__":
-    piada = obter()
-    print("Piada do Chuck Norris:")
-    print(piada)
+    try:
+        piada = testes()
+    except Exception as e:
+        print("Erro ao obter piada:", e)
+    else:
+        print("Piada do Chuck Norris:")
+        print(piada)
